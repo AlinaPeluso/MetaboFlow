@@ -14,7 +14,7 @@ The pre-processing section is required as first as it produces the cleaned datas
 ## Pre-processing
 This first section aims to free the data from unreliable samples which will probably lead to wrong outputs. In such way, effective data pre-processing methods are applied to avoid the effects of noisy and unreliable data.
 
-This section requires as input the raw data frame, e.g. ion's concentrations. It is also possible to define a set of ion's standard deviation, as these are possibly computed accounting for some control genes. Note that the latter is an optional input i.e if not provided the standard deviations from the data would be computed to perform the data standardisation (see Section [Standardisation](https://github.com/AlinaPeluso/MetaboFlow#standardisation).
+This section requires as input the raw data frame, e.g. ion's concentrations. It is also possible to define a set of ion's standard deviation, as these are possibly computed accounting for some control genes. Note that the latter is an optional input i.e if not provided the standard deviations from the data would be computed to perform the data standardisation (see Section [Standardisation](https://github.com/AlinaPeluso/MetaboFlow#standardisation)).
 
 
 ```
@@ -93,6 +93,22 @@ First we take the logarithmm of the concentration value. Then, the data are scal
 ```
 fn1$stats.median_batch_corrected_data
 ```
+|    | Ion | Min      | 1st Quartile | Median | Mean     | 3rd Quartile | Max    | Variance |
+|----|-----|----------|--------------|--------|----------|--------------|--------|----------|
+| 1  | Ca  | \-4\.311 | \-0\.124     | 0      | 0\.022   | 0\.148       | 1\.671 | 0\.084   |
+| 2  | Cd  | \-1\.749 | \-0\.068     | 0      | 0\.001   | 0\.068       | 0\.735 | 0\.025   |
+| 3  | Co  | \-2\.178 | \-0\.059     | 0      | \-0\.02  | 0\.054       | 0\.629 | 0\.033   |
+| 4  | Cu  | \-0\.681 | \-0\.055     | 0      | 0\.009   | 0\.06        | 0\.876 | 0\.013   |
+| 5  | Fe  | \-7\.332 | \-0\.1       | 0      | 0\.017   | 0\.115       | 1\.869 | 0\.062   |
+| 6  | K   | \-1\.96  | \-0\.124     | 0      | \-0\.044 | 0\.1         | 0\.938 | 0\.068   |
+| 7  | Mg  | \-1\.735 | \-0\.061     | 0      | \-0\.016 | 0\.059       | 0\.688 | 0\.03    |
+| 8  | Mn  | \-3\.71  | \-0\.125     | 0      | \-0\.023 | 0\.101       | 0\.856 | 0\.052   |
+| 9  | Mo  | \-1\.662 | \-0\.163     | 0      | \-0\.003 | 0\.169       | 1\.623 | 0\.103   |
+| 10 | Na  | \-6\.992 | \-0\.26      | 0      | \-0\.058 | 0\.189       | 1\.403 | 0\.216   |
+| 11 | Ni  | \-2\.422 | \-0\.094     | 0      | 0\.006   | 0\.104       | 1\.443 | 0\.057   |
+| 12 | P   | \-1\.059 | \-0\.054     | 0      | \-0\.009 | 0\.052       | 0\.571 | 0\.017   |
+| 13 | S   | \-2\.384 | \-0\.086     | 0      | \-0\.002 | 0\.091       | 1\.411 | 0\.034   |
+| 14 | Zn  | \-0\.416 | \-0\.046     | 0      | 0\.011   | 0\.054       | 0\.661 | 0\.009   |
 
 After outlier removal and the median batch correction of the logged concentrations (logConcentration_corr), the data looks as
 
