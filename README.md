@@ -99,6 +99,6 @@ After outlier removal and the median batch correction of the logged concentratio
 ```
 fn1$plot.logConcentration_by_batch 
 ```
-![caption](link)
+![plot.logConcentration_by_batch](./Output/f1/plot.logConcentration_by_batch.png)
 
 #### Standardisation
