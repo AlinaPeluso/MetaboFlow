@@ -234,3 +234,97 @@ head(data.wide_Symb)
 | YAL009W  | 0  | 0  | 0  | 0  | 0  | 0   | 0  | 0  | 1  | 0  | 0   | 0 | 0 | 0  |
 
 
+
+## Section 2: Exploratory analysis
+
+This section provide a way to summarize the main characteristics of the data with visual methods.
+No input needed as this section is built on the output of the previous section.
+
+```
+source("./R_fn/ExplAnalysis_fn.R")
+
+fn2 <- ExploratoryAnalysis(data=data.wide)
+```
+
+
+#### Pearson correlation
+
+
+```
+fn2$plot.Pearson_correlation 
+```
+![plot.Pearson_correlation](./Output/f2/plot.Pearson_correlation.png)
+
+#### PCA
+
+
+The aim of PCA is to reduce the dimensionality of the data while retaining as much information as possible. This is achieved by projecting the data into a new lower-dimensional space defined by the principal components (PC) that combine in a linear way the original (possibly correlated) variables (e.g. ions) in such a way that the variance of the data in the low-dimensional representation is maximized. In practice, it means that each gene is assigned a score on each new PC dimension, and this score is calculated by appling weight to a a linear combination of the original variables.
+In our case, the data are centred but not further scaled as were normalised in the pre-processing stage thus the variance is homogeneous across variables. The algorithm is able to handle missing values.
+
+```
+fn2$plot.PCA_Individual
+```
+
+The weights of each of the original variables are stored in the so-called loading vectors associated to each PC.
+
+Loadings (first 10) for PC1:
+
+```
+head(fn2$stat.loadings_PC1,10)
+```
+
+Loadings (first 10) for PC2:
+
+```
+head(fn2$stat.loadings_PC2,10)
+```
+
+#### Heatmap
+
+We employ an heatmap as a graphical representation of data where the knockout values contained are represented as colors. A dendrogram is also added to the left side (clustering of genes knockout) and to the top (clustering of ions).
+
+```
+fn2$plot.heatmap 
+```
+
+
+
+#### Pairwise correlation map
+
+We employ a correlation map to visualise the paiwise correlation coefficients across ions.
+
+```
+fn2$plot.pairwise_correlation_map 
+```
+
+#### Regularized partial correlation network 
+
+We now inspect the (statistical) relationships between ions in the form of graphical models. The graph is made of n nodes (ions) connected by m edges (knockout) and the relationships between ions is visualised as weighted edges. 
+
+We compute a network of partial correlation coefficients. Such networks can also be termed concentration graphs (Cox & Wermuth, 1994) or Gaussian graphical models (Lauritzen, 1996). Each link in the network represents a partial correlation coefficient between two variables after conditioning on all other variables in the dataset. These coefficients range from `$-1$` to `$1$` and encode the remaining association between two nodes after controlling for all other information possible, also known as conditional independence associations. 
+
+The connections are visualized using red lines indicating negative partial correlations, green lines indicating positive partial correlations, and wider and more saturated connections indicate partial correlations that are far from zero. 
+
+Whenever the partial correlation is exactly zero, no connection is drawn between two nodes, indicating that two variables are independent after controlling for all other variables in the network. This is of particular interest since such a missing connection indicates one of the two variables could not have caused the other. As such, whenever there is a connection present, it highlights a potential causal pathway between two variables.
+
+
+```
+fn2$plot.regularized_partial_correlation_network 
+```
+
+
+# Clustering
+
+
+```
+go_slim_mapping <- read.table('./Data/go_slim_mapping.txt', sep='\t', header=T)
+ORF2KEGG <- read.table('./Data/ORF2KEGG.txt', sep='\t', header=T)
+source("./R_fn/GeneClustering_fn.R")
+```
+
+
+```
+fn3 <- GeneClustering(data=data.wide, data_Symb=data.wide_Symb, data_GOslim=go_slim_mapping, data_ORF2KEGG=ORF2KEGG)
+```
+
+
