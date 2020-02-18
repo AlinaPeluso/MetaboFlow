@@ -440,7 +440,7 @@ We can also access to the impact and betweeness value as follow (only first 10 v
 head(fn4$stats.impact_betweeness,10)
 ```
 
-We can also associate each cluster to low or high values of impact and betwenees based on the highest number of genes in that cathegory. 
+We can also associate each cluster to low or high values of impact and betwenees based on the highest number of genes in that cathegory.
 
 ```
 fn4$stats.impact_betweeness_by_cluster
