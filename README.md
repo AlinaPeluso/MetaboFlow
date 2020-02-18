@@ -11,7 +11,7 @@ The workflow consist of four sections, and respectively
 
 The pre-processing section is required as first as it produces the cleaned dataset used in the other sections. There is no specific order on how to run the other three sections. 
 
-## Pre-processing
+## Section 1: Pre-processing
 This first section aims to free the data from unreliable samples which will probably lead to wrong outputs. In such way, effective data pre-processing methods are applied to avoid the effects of noisy and unreliable data.
 
 This section requires as input the raw data frame, e.g. ion's concentrations. It is also possible to define a set of ion's standard deviation, as these are possibly computed accounting for some control genes. Note that the latter is an optional input i.e if not provided the standard deviations from the data would be computed to perform the data standardisation (see Section [Standardisation](https://github.com/AlinaPeluso/MetaboFlow#standardisation)).
@@ -118,3 +118,83 @@ fn1$plot.logConcentration_by_batch
 ![plot.logConcentration_by_batch](./Output/f1/plot.logConcentration_by_batch.png)
 
 #### Standardisation
+
+After outlier removal and median batch correction we now standardise the ions' logged concentrations. For each set of knockouts across the ions's type, we normalise the concentrations by dividing for the ions' standard deviation. The ions' standard deviations can be estimated from the data, or a set of pre-defined ions' standard deviations can be used. The latter has been computed on the complete dataset (which includes also some gene controls). At the moment we do not use the pre-defined ion's concenrations to normalise our data.
+
+
+The concentration values for each ion can be summarised as follow.
+
+```
+fn1$stats.standardised_data
+```
+
+
+|    | Ion | Min       | 1st Quartile | Median   | Mean     | 3rd Quartile | Max     | Variance |
+|----|-----|-----------|--------------|----------|----------|--------------|---------|----------|
+| 1  | Ca  | \-4\.135  | \-1\.937     | 0\.057   | 0\.945   | 3\.187       | 10\.698 | 15\.266  |
+| 2  | Cd  | \-2\.894  | \-0\.341     | 0\.596   | 0\.558   | 1\.257       | 4\.214  | 2\.111   |
+| 3  | Co  | \-1\.863  | \-0\.383     | 0\.167   | 0\.568   | 1\.371       | 4\.942  | 2\.629   |
+| 4  | Cu  | \-1\.126  | \-0\.643     | \-0\.363 | 0\.318   | 0\.944       | 4\.662  | 2\.012   |
+| 5  | Fe  | \-1\.789  | \-0\.733     | \-0\.48  | \-0\.263 | \-0\.006     | 2\.043  | 0\.724   |
+| 6  | K   | \-2\.099  | \-0\.734     | 0\.005   | 0\.285   | 0\.818       | 5\.242  | 2\.307   |
+| 7  | Mg  | \-12\.918 | \-1\.082     | 0\.608   | 0\.236   | 2\.425       | 9\.631  | 12\.37   |
+| 8  | Mn  | \-1\.85   | \-0\.377     | 0\.93    | 0\.917   | 2\.06        | 4\.133  | 2\.39    |
+| 9  | Mo  | \-5\.016  | \-0\.672     | 1\.354   | 1\.522   | 3\.409       | 11\.099 | 10\.04   |
+| 10 | Na  | \-4\.029  | \-1\.121     | \-0\.156 | \-0\.242 | 0\.458       | 3\.238  | 1\.791   |
+| 11 | Ni  | \-1\.476  | \-0\.414     | 0\.454   | 0\.549   | 1\.009       | 6\.043  | 1\.918   |
+| 12 | P   | \-3\.697  | \-1\.269     | \-0\.115 | \-0\.179 | 0\.724       | 3\.667  | 2\.441   |
+| 13 | S   | \-1\.345  | \-0\.396     | 0\.283   | 0\.309   | 0\.767       | 4\.961  | 1\.103   |
+| 14 | Zn  | \-1\.969  | \-0\.773     | \-0\.476 | \-0\.096 | 0\.44        | 4\.263  | 1\.304   |
+
+
+
+
+#### Symbolization
+As we are working with the logConcentration_corr_norm we can consider a thresold based on a certain number of sigma (e.g. number-of-sigma thresold=3) to symbolizise the concentrations' profile of the knockouts as follow:
+
+* Symb=0  if -3<logConcentration_corr_norm<3 
+* Symb=1  if logConcentration_corr_norm>=3 
+* Symb=-1 otherwise
+
+The choice of the thresold is arbitrary i.e. thresold greater than 3 can be chosen. The highest is the thresold, the highest is the concentration value taken as significant.
+
+
+#### Aggregation of the knockout replicates
+
+For each ion measure, we proceed to aggregate the data by taking the median value of the knockout. For each ions we consider around 1,450 genes. And of which we can plot the z-score with the associated sigma as follow.
+
+```
+fn1$plot.logConcentration_z_scores
+```
+![plot.logConcentration_z_scores](./Output/f1/plot.logConcentration_z_scores.png)
+
+
+#### Final dataset
+
+Three dataset are obtained as output. The first in the long format (genes as rows and ions as columns), and two in wide format and respectively one with the standardised ion's concentraction, and the other with the symbolised profiles of the knockouts.
+
+Long format (aggregated knockout replicates):
+```
+dataR.long <- fn1$dataR.long
+head(dataR.long)
+```
+
+Long format (not aggregated knockout replicates):
+```
+data.long <- fn1$data.long
+head(data.long)
+```
+
+Wide format, standardised ion's concentraction:
+```
+data.wide <- fn1$data.wide
+head(data.wide)
+```
+
+Wide format, symbolised profiles:
+```
+data.wide_Symb <- fn1$data.wide_Symb
+head(data.wide_Symb)
+```
+
+
