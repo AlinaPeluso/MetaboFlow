@@ -475,6 +475,52 @@ The first five entries of each cluster can be access as follows.
 lapply(fn3$stat.Goterms_enrichment, function(x) head(x,5))
 ```
 
+| GO\_ID                         |  Description                           |  Pvalue       |  Count  | CountUniverse |
+|--------------------------------|----------------------------------------|---------------|---------|---------------|
+|  \#\# Cluster 2 \(747 genes\)  |                                        |               |         |               |
+| GO:0030427                     | site of polarized growth               | 0\.0066       | 49      | 75            |
+|  GO:0005886                    | plasma membrane                        | 0\.0177       | 84      | 141           |
+|  GO:0009277                    |  fungal\-type cell wall                | 0\.021        | 23      | 33            |
+|  GO:0030312                    | external encapsulating structure       | 0\.0245       | 24      | 35            |
+|  GO:0005933                    |  cellular bud                          | 0\.0287       | 41      | 65            |
+|  \#\# Cluster 3 \(30 genes\)   |                                        |               |         |               |
+| GO:1903293                     |  phosphatase complex                   | 0\.0084       | 2       | 7             |
+| GO:0031984                     | organelle subcompartment               | 0\.0084       | 7       | 117           |
+| GO:0005789                     |  endoplasmic reticulum membrane        | 0\.0176       | 5       | 75            |
+| GO:0031965                     |  nuclear membrane                      | 0\.027        | 2       | 13            |
+| GO:0005798                     | Golgi\-associated vesicle              | 0\.0378       | 2       | 15            |
+|  \#\# Cluster 15 \(29 genes\)  |                                        |               |         |               |
+|  GO:0031975                    |  envelope                              | 3\.6E\-15     | 20      | 140           |
+| GO:0005740                     |  mitochondrial envelope                | 2\.25E\-14    | 16      | 94            |
+| GO:0005743                     |  mitochondrial inner membrane          | 8\.44E\-14    | 14      | 66            |
+| GO:0005739                     | mitochondrion                          | 1\.287E\-13   | 24      | 294           |
+|  GO:0031090                    | organelle membrane                     | 1\.595E\-08   | 19      | 268           |
+|   \#\# Cluster 16 \(37 genes\) |                                        |               |         |               |
+| GO:0031083                     |  BLOC\-1 complex                       | 0\.000066     | 3       | 4             |
+| GO:0005657                     | replication fork                       | 0\.009434     | 2       | 6             |
+| GO:0044445                     | cytosolic part                         | 0\.046995     | 4       | 53            |
+|  \#\# Cluster 18 \(46 genes\)  |                                        |               |         |               |
+| GO:0005789                     | endoplasmic reticulum membrane         | 0\.0097       | 7       | 75            |
+| GO:0005934                     | cellular bud tip                       | 0\.0135       | 4       | 29            |
+| GO:0031984                     | organelle subcompartment               | 0\.0335       | 8       | 117           |
+|  \#\# Cluster 30 \(27 genes\)  |                                        |               |         |               |
+|  GO:0005887                    | integral component of plasma membrane  | 0\.011        | 3       | 25            |
+| GO:0044459                     | plasma membrane part                   | 0\.041        | 3       | 40            |
+|  \#\# Cluster 39 \(13 genes\)  |                                        |               |         |               |
+|  GO:0098588                    |  bounding membrane of organelle        | 0\.033        | 4       | 177           |
+|  GO:0044446                    | intracellular organelle part           | 0\.035        | 8       | 623           |
+|   \#\# Cluster 55 \(20 genes\) |                                        |               |         |               |
+| GO:0005759                     |  mitochondrial matrix                  | 3E\-10        | 10      | 53            |
+|  GO:0005739                    |  mitochondrion                         | 5\.4E\-10     | 17      | 294           |
+| GO:0000313                     |  organellar ribosome                   | 4\.1057E\-07  | 6       | 24            |
+|  GO:0043233                    | organelle lumen                        | 2\.64737E\-05 | 11      | 209           |
+|  GO:0005763                    |  mitochondrial small ribosomal subunit | 0\.000196584  | 3       | 9             |
+|  \#\# Cluster 90 \(20 genes\)  |                                        |               |         |               |
+| GO:0019005                     | SCF ubiquitin ligase complex           | 0\.0025       | 2       | 6             |
+| GO:0000151                     |  ubiquitin ligase complex              | 0\.0208       | 2       | 17            |
+| GO:0005739                     | mitochondrion                          | 0\.028        | 8       | 294           |
+|  GO:0031967                    |  organelle envelope                    | 0\.043        | 4       | 113           |
+| GO:0031966                     |  mitochondrial membrane                | 0\.0473       | 4       | 105           |
 
 
 ## Section 4: Network analysis
@@ -521,10 +567,36 @@ We can also access to the impact and betweeness value as follow (only first 10 v
 head(fn4$stats.impact_betweeness,10)
 ```
 
+|  Knockout |  Impact  | Betweenness |  Position                      |  Cluster                                              |
+|-----------|----------|-------------|--------------------------------|-------------------------------------------------------|
+| YAL007C   | 4\.2     | 67          | Low impact, low betweenness    | Cluster 3 \(30 genes\): Mo\(\+\)                      |
+| YAL009W   | 5\.6     | 575         |  Low impact, high betweenness  | Cluster 3 \(30 genes\): Mo\(\+\)                      |
+| YAL015C   | 4\.1     | 1263        |  Low impact, high betweenness  | Cluster 3 \(30 genes\): Mo\(\+\)                      |
+|  YAL017W  | 4\.3     | 108         |  Low impact, low betweenness   | Cluster 3 \(30 genes\): Mo\(\+\)                      |
+|  YAL020C  | 9        | 326         |  Low impact, low betweenness   | Cluster 7 \(28 genes\): Na\(\-\)                      |
+| YAL039C   | 12\.7    | 789         |  High impact, high betweenness |  Cluster 15 \(29 genes\): K\(\-\), Mn\(\-\), Mo\(\-\) |
+|  YAL042W  | 5\.3     | 88          |  Low impact, low betweenness   |  Cluster 16 \(37 genes\): Cd\(\+\)                    |
+| YAL044C   | 7\.3     | 253         | Low impact, low betweenness    | Cluster 18 \(46 genes\): Na\(\+\)                     |
+| YAL048C   | 13\.3    | 76          |  High impact, low betweenness  | Cluster 15 \(29 genes\): K\(\-\), Mn\(\-\), Mo\(\-\)  |
+|  YAL062W  | 3\.6     | 378         | Low impact, low betweenness    |  Cluster 18 \(46 genes\): Na\(\+\)                    |
+
+
 We can also associate each cluster to low or high values of impact and betwenees based on the highest number of genes in that cathegory.
 
 ```
 fn4$stats.impact_betweeness_by_cluster
 ```
 
+|  Cluster                                               | Position                      | nGenes |
+|--------------------------------------------------------|-------------------------------|--------|
+|  Cluster 15 \(29 genes\): K\(\-\), Mn\(\-\), Mo\(\-\)  | High impact, low betweenness  | 18     |
+|  Cluster 16 \(37 genes\): Cd\(\+\)                     | Low impact, low betweenness   | 29     |
+|  Cluster 18 \(46 genes\): Na\(\+\)                     | Low impact, low betweenness   | 34     |
+| Cluster 25 \(19 genes\): Cd\(\+\), Na\(\-\)            | Low impact, low betweenness   | 15     |
+|  Cluster 3 \(30 genes\): Mo\(\+\)                      | Low impact, high betweenness  | 18     |
+|  Cluster 30 \(27 genes\): Mn\(\+\), Ni\(\+\), Na\(\-\) |  High impact, low betweenness | 20     |
+| Cluster 39 \(13 genes\): S\(\-\)                       |  Low impact, low betweenness  | 10     |
+| Cluster 55 \(20 genes\): K\(\-\), Mn\(\-\)             | High impact, low betweenness  | 15     |
+| Cluster 7 \(28 genes\): Na\(\-\)                       |  Low impact, low betweenness  | 26     |
+|  Cluster 90 \(20 genes\): Mo\(\-\)                     | Low impact, high betweenness  | 10     |
 
