@@ -362,6 +362,19 @@ We proceed to investigate the clusters which have at least 10 genes.
 ```
 fn3$stats.clusters
 ```
+| cluster\_id | nGenes |
+|-------------|--------|
+| 2           | 747    |
+| 3           | 30     |
+| 7           | 28     |
+| 15          | 29     |
+| 16          | 37     |
+| 18          | 46     |
+| 25          | 19     |
+| 30          | 27     |
+| 39          | 13     |
+| 55          | 20     |
+| 90          | 20     |
 
 We then compute a profile plot for each cluster.
 
@@ -381,6 +394,74 @@ The first five entries of each cluster can be access as follows.
 ```
 lapply(fn3$stat.Kegg_Goslim_annotation, function(x) head(x,5))
 ```
+| Term                                            |  Ontology            |  Count |  Percent |
+|-------------------------------------------------|----------------------|--------|----------|
+| ## Cluster 2 \(747 genes\)                      |                      |        |          |
+|  cellular bud                                   | Cellular component   | 39     | 5\.2     |
+|  cytoplasm                                      | Cellular component   | 474    | 63\.5    |
+|  DNA binding                                    | Molecular function   | 40     | 5\.4     |
+|  endomembrane system                            |  Cellular component  | 102    | 13\.7    |
+|  endoplasmic reticulum                          | Cellular component   | 67     | 9        |
+| ## Cluster 3 \(30 genes\)                       |                      |        |          |
+|  carbohydrate metabolic process                 | Biological process   | 3      | 10       |
+|  chromatin organization                         | Biological process   | 4      | 13\.3    |
+|  cofactor metabolic process                     | Biological process   | 2      | 6\.7     |
+|  cytoplasm                                      |  Cellular component  | 21     | 70       |
+|  cytoplasmic vesicle                            | Cellular component   | 3      | 10       |
+| ## Cluster 7 \(28 genes\)                       |                      |        |          |
+| ATPase activity                                 |  Molecular function  | 2      | 7\.1     |
+| cell wall organization or biogenesis            | Biological process   | 2      | 7\.1     |
+|  cellular amino acid metabolic process          | Biological process   | 2      | 7\.1     |
+|  cellular bud                                   | Cellular component   | 2      | 7\.1     |
+|  cellular response to DNA damage stimulus       |  Biological process  | 3      | 10\.7    |
+| ## Cluster 15 \(29 genes\)                      |                      |        |          |
+| cellular respiration                            |  Biological process  | 5      | 17\.2    |
+|  cofactor metabolic process                     | Biological process   | 2      | 6\.9     |
+| cytoplasm                                       | Cellular component   | 26     | 89\.7    |
+| generation of precursor metabolites and energy  | Biological process   | 5      | 17\.2    |
+|  hydrolase activity                             | Molecular function   | 5      | 17\.2    |
+| ## Cluster 16 \(37 genes\)                      |                      |        |          |
+|  carbohydrate metabolic process                 |  Biological process  | 2      | 5\.4     |
+|  cell cortex                                    |  Cellular component  | 2      | 5\.4     |
+|  cellular response to DNA damage stimulus       | Biological process   | 5      | 13\.5    |
+|  chromatin organization                         | Biological process   | 2      | 5\.4     |
+|  chromosome                                     | Cellular component   | 4      | 10\.8    |
+| ## Cluster 18 \(46 genes\)                      |                      |        |          |
+|  cell cortex                                    | Cellular component   | 4      | 8\.7     |
+| cellular amino acid metabolic process           | Biological process   | 4      | 8\.7     |
+|  cellular bud                                   |  Cellular component  | 4      | 8\.7     |
+| cytoplasm                                       |  Cellular component  | 36     | 78\.3    |
+|  endomembrane system                            |  Cellular component  | 9      | 19\.6    |
+| ## Cluster 25 \(19 genes\)                      |                      |        |          |
+| carbohydrate metabolic process                  |  Biological process  | 2      | 10\.5    |
+|  carbohydrate transport                         |  Biological process  | 1      | 5\.3     |
+|  cell budding                                   |  Biological process  | 1      | 5\.3     |
+|  cell cortex                                    |  Cellular component  | 1      | 5\.3     |
+|  cell wall                                      | Cellular component   | 1      | 5\.3     |
+| ## Cluster 30 \(27 genes\)                      |                      |        |          |
+|  chromosome                                     | Cellular component   | 3      | 11\.1    |
+|  cytoplasm                                      | Cellular component   | 14     | 51\.9    |
+|  DNA binding                                    |  Molecular function  | 2      | 7\.4     |
+|  endomembrane system                            |  Cellular component  | 3      | 11\.1    |
+| endoplasmic reticulum                           | Cellular component   | 2      | 7\.4     |
+| ## Cluster 39 \(13 genes\)                      |                      |        |          |
+| cellular amino acid metabolic process           | Biological process   | 1      | 7\.7     |
+| cytoplasm                                       |  Cellular component  | 9      | 69\.2    |
+| endomembrane system                             |  Cellular component  | 2      | 15\.4    |
+| endoplasmic reticulum                           | Cellular component   | 1      | 7\.7     |
+|  Golgi apparatus                                | Cellular component   | 1      | 7\.7     |
+| ## Cluster 55 \(20 genes\)                      |                      |        |          |
+| cellular amino acid metabolic process           |  Biological process  | 3      | 15       |
+| cellular response to DNA damage stimulus        | Biological process   | 2      | 10       |
+|  chromosome                                     | Cellular component   | 2      | 10       |
+| cytoplasm                                       | Cellular component   | 17     | 85       |
+|  DNA recombination                              |  Biological process  | 2      | 10       |
+| ## Cluster 90 \(20 genes\)                      |                      |        |          |
+| cytoplasm                                       | Cellular component   | 16     | 80       |
+| endomembrane system                             |  Cellular component  | 3      | 15       |
+| Golgi apparatus                                 |  Cellular component  | 2      | 10       |
+|  hydrolase activity                             |  Molecular function  | 2      | 10       |
+|  ion transport                                  | Biological process   | 2      | 10       |
 
 
 
