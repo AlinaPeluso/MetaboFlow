@@ -23,7 +23,7 @@ This section requires as input the raw data frame, e.g. ion's concentrations. It
 Idata <- read.csv('./Data/Dataset_Metaboflow_Ionomic_Workflow.csv',header=T)
 pre_defined_sd <- read.table('./Data/pre_defined_sd.txt', header=T)
 
-# Execute pre-processing fn
+# Run pre-processing fn
 source("./R_fn/PreProcessing_fn.R")
 fn1 <- PreProcessing(data=Idata,stdev=pre_defined_sd)
 ```
@@ -241,14 +241,13 @@ This section provide a way to summarize the main characteristics of the data wit
 No input needed as this section is built on the output of the previous section.
 
 ```
+# Run exploratory analysis fn
 source("./R_fn/ExplAnalysis_fn.R")
-
 fn2 <- ExploratoryAnalysis(data=data.wide)
 ```
 
 
 #### Pearson correlation
-
 
 ```
 fn2$plot.Pearson_correlation 
@@ -329,7 +328,7 @@ fn2$plot.pairwise_correlation_map
 
 We now inspect the (statistical) relationships between ions in the form of graphical models. The graph is made of n nodes (ions) connected by m edges (knockout) and the relationships between ions is visualised as weighted edges. 
 
-We compute a network of partial correlation coefficients. Such networks can also be termed concentration graphs (Cox & Wermuth, 1994) or Gaussian graphical models (Lauritzen, 1996). Each link in the network represents a partial correlation coefficient between two variables after conditioning on all other variables in the dataset. These coefficients range from `$-1$` to `$1$` and encode the remaining association between two nodes after controlling for all other information possible, also known as conditional independence associations. 
+We compute a network of partial correlation coefficients. Such networks can also be termed concentration graphs (Cox & Wermuth, 1994) or Gaussian graphical models (Lauritzen, 1996). Each link in the network represents a partial correlation coefficient between two variables after conditioning on all other variables in the dataset. These coefficients range from `-1` to `1` and encode the remaining association between two nodes after controlling for all other information possible, also known as conditional independence associations. 
 
 The connections are visualized using red lines indicating negative partial correlations, green lines indicating positive partial correlations, and wider and more saturated connections indicate partial correlations that are far from zero. 
 
@@ -341,18 +340,110 @@ fn2$plot.regularized_partial_correlation_network
 ```
 ![plot.regularized_partial_correlation_network](./Output/f2/plot.regularized_partial_correlation_network.png)
 
-# Clustering
+## Section 3: Clustering
 
 
 ```
+# Import data 
 go_slim_mapping <- read.table('./Data/go_slim_mapping.txt', sep='\t', header=T)
 ORF2KEGG <- read.table('./Data/ORF2KEGG.txt', sep='\t', header=T)
+
+# Run clustering fn
 source("./R_fn/GeneClustering_fn.R")
-```
-
-
-```
 fn3 <- GeneClustering(data=data.wide, data_Symb=data.wide_Symb, data_GOslim=go_slim_mapping, data_ORF2KEGG=ORF2KEGG)
+```
+
+
+#### Clustering
+
+We compute the manhattan distances between the knockouts' symbolised profile to cluster genes having relative distances equal to 0. 
+We proceed to investigate the clusters which have at least 10 genes.
+
+```
+fn3$stats.clusters
+```
+
+We then compute a profile plot for each cluster.
+
+```
+fn3$plot.profiles 
+```
+![plot.profiles](./Output/f3/plot.profiles.png)
+
+#### Go Slim annotation
+
+
+We now highlight the the biological process, the cellular component, and the molecular function of the genes within each cluster. 
+We retain the annotations that map at least 5% of the genes in the cluster.
+We do not include in the results the first cluster (Cluster 1) as this the "null" cluster which contains a mix of knockouts having no impact on the ions.
+The first five entries of each cluster can be access as follows.
+
+```
+lapply(fn3$stat.Kegg_Goslim_annotation, function(x) head(x,5))
+```
+
+
+
+#### Go terms enrichment
+
+We perform the enrichment of the genes in the clusters by employing the all GO terms annotation in the [SGD online database](https://www.yeastgenome.org/).
+The first five entries of each cluster can be access as follows.
+
+
+```
+lapply(fn3$stat.Goterms_enrichment, function(x) head(x,5))
+```
+
+
+
+## Section 4: Network analysis
+
+```
+# Run gene network fn
+source("C:/Users/alina/Dropbox/Imperial/Galaxy/R/WrapForGalaxy/MetaboFlow/R_fn/GeneNetwork_fn.R")
+fn4 <- GeneNetwork(data=data.wide, data_Symb=data.wide_Symb)
+```
+
+The aim of the following network analysis is to group genes with same symbolic profile. 
+
+First we compute the Manhattan distance between al gene pairs. This measure is then used in the linkage algorithm (method=single) and then the unique partition is found by cutting the hierarchical tree at zero-distances. 
+
+For this analysis we filter the clusters as we do not consider the largest cluster as it contains genes with no phenotype as well as few smaller clusters of less than 10 genes.
+
+We compute the empirical correlation matrix between genes (method = "pearson", use = "pairwise.complete.obs"), then we subset the correlation matrix based on the cluster filtering. Moreover, as we are interested only in positive correlations among genes we filter the correlation matrix based on an arbitrary correlation's thresold of 0.6 such that the clustering can be interpreted in terms of posivite correlation between gene profiles.
+
+#### Network plot
+
+We then generate the network from the described correlation matrix.
+And finally we can visualise the corresponding network plot.
+
+
+```
+fn4$plot.pnet
+```
+![plot.pnet](./Output/f4/plot.pnet.png)
+
+#### Impact and betweeness scores
+
+We are now interested to highlight the most central genes. To do so we can consider two metrics i.e. the impact and the betweeness. 
+From the empirical correlation matrix between genes we can compute the betweenness measure as the fraction of shortest paths that pass through each gene (node). Next a measure of impact can be computed as the $L_2$ norm (Euclidean distance) of each gene.
+These two centrality measures can be then used togheter to cluster the genes as follow.
+
+```
+fn4$plot.impact_betweenees
+```
+![plot.impact_betweenees](./Output/f4/plot.impact_betweenees.png)
+
+We can also access to the impact and betweeness value as follow (only first 10 value shown).
+
+```
+head(fn4$stats.impact_betweeness,10)
+```
+
+We can also associate each cluster to low or high values of impact and betwenees based on the highest number of genes in that cathegory. 
+
+```
+fn4$stats.impact_betweeness_by_cluster
 ```
 
 
