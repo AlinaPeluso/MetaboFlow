@@ -6,8 +6,8 @@ GeneClustering = function(data=NULL,
                           data_Symb=NULL)
 {
 
-  data_GOslim <- read.table('C:/Users/apeluso/Dropbox/Imperial/Galaxy/Metaboflow/Dataset_Metaboflow/go_slim_mapping.txt', sep='\t', header=T)
-  data_ORF2KEGG <- read.table('C:/Users/apeluso/Dropbox/Imperial/Galaxy/Metaboflow/Dataset_Metaboflow/ORF2KEGG.txt', sep='\t', header=T)
+  data_GOslim <- read.table('./go_slim_mapping.txt', sep='\t', header=T)
+  data_ORF2KEGG <- read.table('./ORF2KEGG.txt', sep='\t', header=T)
   
 
   #### -------------------> Define clusters
