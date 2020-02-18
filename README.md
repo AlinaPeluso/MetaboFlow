@@ -264,6 +264,7 @@ In our case, the data are centred but not further scaled as were normalised in t
 ```
 fn2$plot.PCA_Individual
 ```
+![plot.PCA_Individual](./Output/f2/plot.PCA_Individual.png)
 
 The weights of each of the original variables are stored in the so-called loading vectors associated to each PC.
 
@@ -286,7 +287,7 @@ We employ an heatmap as a graphical representation of data where the knockout va
 ```
 fn2$plot.heatmap 
 ```
-
+![plot.heatmap](./Output/f2/plot.heatmap.png)
 
 
 #### Pairwise correlation map
@@ -296,6 +297,7 @@ We employ a correlation map to visualise the paiwise correlation coefficients ac
 ```
 fn2$plot.pairwise_correlation_map 
 ```
+![plot.pairwise_correlation_map](./Output/f2/plot.pairwise_correlation_map.png)
 
 #### Regularized partial correlation network 
 
@@ -311,7 +313,7 @@ Whenever the partial correlation is exactly zero, no connection is drawn between
 ```
 fn2$plot.regularized_partial_correlation_network 
 ```
-
+![plot.regularized_partial_correlation_network](./Output/f2/plot.regularized_partial_correlation_network.png)
 
 # Clustering
 
