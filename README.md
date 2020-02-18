@@ -178,6 +178,15 @@ Long format (aggregated knockout replicates):
 dataR.long <- fn1$dataR.long
 head(dataR.long)
 ```
+| row\_id | Knockout | Batch\_ID | id   | Ion | Concentration | Outlier | logConcentration | logConcentration\_corr | logConcentration\_corr\_norm | Symb |
+|---------|----------|-----------|------|-----|---------------|---------|------------------|------------------------|------------------------------|------|
+| 3851    | YAL002W  | 19        | 3851 | Ca  | 93\.4         | 0       | 4\.54            | 0\.96                  | 6\.3                         | 1    |
+| 3852    | YAL002W  | 19        | 3852 | Ca  | 98\.2         | 0       | 4\.59            | 1\.01                  | 6\.7                         | 1    |
+| 3853    | YAL002W  | 19        | 3853 | Ca  | 101\.6        | 0       | 4\.62            | 1\.04                  | 6\.9                         | 1    |
+| 13850   | YAL002W  | 19        | 3851 | Cd  | 1\.5          | 0       | 0\.42            | 0\.5                   | 8\.8                         | 1    |
+| 13851   | YAL002W  | 19        | 3852 | Cd  | 1\.6          | 0       | 0\.45            | 0\.53                  | 9\.2                         | 1    |
+| 13852   | YAL002W  | 19        | 3853 | Cd  | 1\.6          | 0       | 0\.5             | 0\.58                  | 10\.1                        | 1    |
+
 
 Long format (not aggregated knockout replicates):
 ```
