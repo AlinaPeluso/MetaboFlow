@@ -552,9 +552,7 @@ fn4$plot.pnet
 
 #### Impact and betweeness scores
 
-We are now interested to highlight the most central genes. To do so we can consider two metrics i.e. the impact and the betweeness. 
-From the empirical correlation matrix between genes we can compute the betweenness measure as the fraction of shortest paths that pass through each gene (node). Next a measure of impact can be computed as the $L_2$ norm (Euclidean distance) of each gene.
-These two centrality measures can be then used togheter to cluster the genes as follow.
+We are now interested to highlight the most central genes. To do so we can consider two metrics i.e. the impact and the betweeness. From the empirical correlation matrix between genes we can compute the betweenness measure as the fraction of shortest paths that pass through each gene (node). Next a measure of impact can be computed as the `L2` norm (Euclidean distance) of each gene. These two centrality measures can be then used togheter to cluster the genes as follow.
 
 ```
 fn4$plot.impact_betweenees
