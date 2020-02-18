@@ -1,4 +1,5 @@
-# MetaboFlow
+# MetaboFlow - the development of standardised workflows for processing metabolomics data to aid reproducible data sharing and big data initiatives
+
 This pipeline describes the processing and the analysis of Ionomics data. 
 This [paper](https://arxiv.org/abs/1910.14191) describes a possible application.
 
@@ -169,7 +170,7 @@ fn1$plot.logConcentration_z_scores
 ![plot.logConcentration_z_scores](./Output/f1/plot.logConcentration_z_scores.png)
 
 
-#### Final dataset
+#### Final datasets
 
 Three dataset are obtained as output. The first in the long format (genes as rows and ions as columns), and two in wide format and respectively one with the standardised ion's concentraction, and the other with the symbolised profiles of the knockouts.
 
