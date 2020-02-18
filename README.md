@@ -62,7 +62,7 @@ There are no missing values in the data.
 
 #### Outlier detection
 
-We define a lower outer fence: `$Q1 - 3*IQ$` and a upper outer fence: `$Q3 + 3*IQ$` where `$Q1$` and `$Q3$` are the first and the third quantile of the distribution, respectively. A point beyond the outer fence is considered an extreme outlier.
+We define a lower outer fence: `Q1 - 3*IQ` and a upper outer fence: `Q3 + 3*IQ` where `Q1` and `Q3` are the first and the third quantile of the distribution, respectively. A point beyond the outer fence is considered an extreme outlier.
 
 The outliers are split across ions as follows. 
 
@@ -273,12 +273,38 @@ Loadings (first 10) for PC1:
 ```
 head(fn2$stat.loadings_PC1,10)
 ```
+| Knockout | value\.var |
+|----------|------------|
+| YAL019W  | 0\.27      |
+| YAL026C  | 0\.27      |
+| YAL031C  | 0\.27      |
+| YAL034C  | 0\.26      |
+| YAL037W  | 0\.24      |
+| YAL040C  | 0\.23      |
+| YAL042W  | 0\.21      |
+| YAL045C  | 0\.19      |
+| YAL046C  | 0\.15      |
+| YAL048C  | 0\.13      |
+
 
 Loadings (first 10) for PC2:
 
 ```
 head(fn2$stat.loadings_PC2,10)
 ```
+| Knockout | value\.var |
+|----------|------------|
+| YAL002W  | \-0\.21    |
+| YAL004W  | \-0\.18    |
+| YAL005C  | \-0\.16    |
+| YAL007C  | \-0\.15    |
+| YAL008W  | \-0\.15    |
+| YAL009W  | \-0\.13    |
+| YAL010C  | \-0\.12    |
+| YAL013W  | 0\.12      |
+| YAL014C  | \-0\.12    |
+| YAL015C  | \-0\.12    |
+
 
 #### Heatmap
 
