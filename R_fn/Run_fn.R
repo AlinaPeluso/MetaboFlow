@@ -4,8 +4,8 @@
 #### f1: PreProcessing
 
 # *** Inputs ***
-Idata <- read.csv('C:/Users/apeluso/Dropbox/Imperial/Galaxy/R/WrapForGalaxy/MetaboFlow/Data/Dataset_Metaboflow_Ionomic_Workflow.csv',header=T)
-pre_defined_sd <- read.table('C:/Users/apeluso/Dropbox/Imperial/Galaxy/R/WrapForGalaxy/MetaboFlow/Data/pre_defined_sd.txt', header=T)
+Idata <- read.csv('./Data/Dataset_Metaboflow_Ionomic_Workflow.csv',header=T)
+pre_defined_sd <- read.table('./Data/pre_defined_sd.txt', header=T)
 
 # *** Run function ***
 f1 <- PreProcessing(data=Idata,stdev=pre_defined_sd)
@@ -28,7 +28,7 @@ f1$plot.logConcentration_z_scores
 
 
 # *** Store outputs ***
-setwd("C:/Users/apeluso/Dropbox/Imperial/Galaxy/R/WrapForGalaxy/MetaboFlow/Output/f1/")
+setwd("./Output/f1/")
 
 cat(capture.output(print(f1$stats.raw_data), file="stats.raw_data.txt"))
 cat(capture.output(print(f1$stats.outliers), file="stats.outliers.txt"))
@@ -53,7 +53,7 @@ dev.off()
 
 
 # *** Inputs ***
-#data.wide <- read.table('C:/Users/alina/Dropbox/Imperial/Galaxy/Metaboflow/Dataset_Metaboflow/Idata_wide_clean_scaled_norm_unique.txt', sep='\t', header=T)
+#data.wide <- read.table('./Idata_wide_clean_scaled_norm_unique.txt', sep='\t', header=T)
 #f2 <- ExploratoryAnalysis(data=data.wide) 
 
 
@@ -72,7 +72,7 @@ f2$plot.regularized_partial_correlation_network
 
 
 # *** Store outputs ***
-setwd("C:/Users/apeluso/Dropbox/Imperial/Galaxy/R/WrapForGalaxy/MetaboFlow/Output/f2/")
+setwd("./Output/f2/")
 
 pdf(file = "plot.Pearson_correlation.pdf",) 
 f2$plot.Pearson_correlation 
@@ -104,10 +104,10 @@ dev.off()
 
 
 # *** Inputs ***
-go_slim_mapping <- read.table('C:/Users/apeluso/Dropbox/Imperial/Galaxy/Metaboflow/Dataset_Metaboflow/go_slim_mapping.txt', sep='\t', header=T)
-ORF2KEGG <- read.table('C:/Users/apeluso/Dropbox/Imperial/Galaxy/Metaboflow/Dataset_Metaboflow/ORF2KEGG.txt', sep='\t', header=T)
-#data.wide <- read.table('C:/Users/apeluso/Dropbox/Imperial/Galaxy/Metaboflow/Dataset_Metaboflow/Idata_wide_clean_scaled_norm_unique.txt', sep='\t', header=T)
-#data.wide_Symb <- read.table('C:/Users/apeluso/Dropbox/Imperial/Galaxy/Metaboflow/Dataset_Metaboflow/Idata_wide_clean_scaled_norm_unique_Symb.txt', sep='\t', header=T)
+go_slim_mapping <- read.table('./go_slim_mapping.txt', sep='\t', header=T)
+ORF2KEGG <- read.table('./ORF2KEGG.txt', sep='\t', header=T)
+#data.wide <- read.table('./Idata_wide_clean_scaled_norm_unique.txt', sep='\t', header=T)
+#data.wide_Symb <- read.table('./Idata_wide_clean_scaled_norm_unique_Symb.txt', sep='\t', header=T)
 #f3 <- GeneClustering(data=data.wide, data_Symb=data.wide_Symb) 
 
 # *** Run function ***
@@ -123,7 +123,7 @@ f3$stat.Kegg_Goslim_annotation
 f3$stat.Goterms_enrichment 
 
 # *** Store outputs ***
-setwd("C:/Users/apeluso/Dropbox/Imperial/Galaxy/R/WrapForGalaxy/MetaboFlow/Output/f3/")
+setwd("./Output/f3/")
 
 cat(capture.output(print(f3$stats.clusters), file="stats.clusters.txt"))
 
@@ -139,8 +139,8 @@ cat(capture.output(print(f3$stat.Goterms_enrichment), file="stat.Goterms_enrichm
 
 
 # *** Inputs ***
-#data.wide <- read.table('C:/Users/alina/Dropbox/Imperial/Galaxy/Metaboflow/Dataset_Metaboflow/Idata_wide_clean_scaled_norm_unique.txt', sep='\t', header=T)
-#data.wide_Symb <- read.table('C:/Users/alina/Dropbox/Imperial/Galaxy/Metaboflow/Dataset_Metaboflow/Idata_wide_clean_scaled_norm_unique_Symb.txt', sep='\t', header=T)
+#data.wide <- read.table('./Idata_wide_clean_scaled_norm_unique.txt', sep='\t', header=T)
+#data.wide_Symb <- read.table('./Idata_wide_clean_scaled_norm_unique_Symb.txt', sep='\t', header=T)
 #f4 <- GeneNetwork(data=data.wide, data_Symb=data.wide_Symb) 
 
 # *** Run function ***
@@ -156,7 +156,7 @@ f4$stats.impact_betweeness_by_cluster
 
 
 # *** Store outputs ***
-setwd("C:/Users/alina/Dropbox/Imperial/Galaxy/R/WrapForGalaxy/MetaboFlow/Output/f4/")
+setwd("./Output/f4/")
 
 pdf(file = "plot.pnet.pdf",) 
 f4$plot.pnet
