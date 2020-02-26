@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1582665603865.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "90B208D",
+    "lastKnownWriteTime" : 1582755673,
+    "last_content_update" : 1582755673121,
+    "path" : "~/Dropbox/Imperial/Galaxy/joss/Ionflow/R/ExplAnalysis_fn.R",
+    "project_path" : "R/ExplAnalysis_fn.R",
+    "properties" : {
+        "cursorPosition" : "29,35",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

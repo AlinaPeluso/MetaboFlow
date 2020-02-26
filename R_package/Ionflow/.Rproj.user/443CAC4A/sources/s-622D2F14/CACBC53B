@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1582734879962.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "CACBC53B",
+    "lastKnownWriteTime" : 140515899973448,
+    "last_content_update" : 1582757794485,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "47,0",
+        "scrollLine" : "21",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
