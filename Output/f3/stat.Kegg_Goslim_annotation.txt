@@ -1,0 +1,336 @@
+$`Cluster 2 (747 genes)`
+                        Term           Ontology Count   Percent
+11              cellular bud Cellular component    39  5.220884
+22                 cytoplasm Cellular component   474 63.453815
+29               DNA binding Molecular function    40  5.354752
+34       endomembrane system Cellular component   102 13.654618
+35     endoplasmic reticulum Cellular component    67  8.969210
+49        hydrolase activity Molecular function    92 12.315930
+61        meiotic cell cycle Biological process    50  6.693440
+62                  membrane Cellular component   204 27.309237
+66    mitochondrial envelope Cellular component    40  5.354752
+68             mitochondrion Cellular component   122 16.331995
+81                   nucleus Cellular component   197 26.372155
+94           plasma membrane Cellular component    57  7.630522
+115     response to chemical Biological process    62  8.299866
+131 site of polarized growth Cellular component    46  6.157965
+141     transferase activity Molecular function    85 11.378849
+152                  vacuole Cellular component    58  7.764391
+
+$`Cluster 3 (30 genes)`
+                                                     Term           Ontology Count   Percent
+1                          carbohydrate metabolic process Biological process     3 10.000000
+6                                  chromatin organization Biological process     4 13.333333
+8                              cofactor metabolic process Biological process     2  6.666667
+9                                               cytoplasm Cellular component    21 70.000000
+11                                    cytoplasmic vesicle Cellular component     3 10.000000
+13                                            DNA binding Molecular function     3 10.000000
+16                                    endomembrane system Cellular component     8 26.666667
+17                                  endoplasmic reticulum Cellular component     5 16.666667
+20         generation of precursor metabolites and energy Biological process     2  6.666667
+21                                        Golgi apparatus Cellular component     2  6.666667
+22                                Golgi vesicle transport Biological process     2  6.666667
+24                                     hydrolase activity Molecular function     5 16.666667
+27                                lipid metabolic process Biological process     2  6.666667
+29                                     meiotic cell cycle Biological process     2  6.666667
+30                                               membrane Cellular component     9 30.000000
+33                                          mitochondrion Cellular component     4 13.333333
+38     nucleic acid binding transcription factor activity Molecular function     3 10.000000
+40 nucleobase-containing small molecule metabolic process Biological process     3 10.000000
+42                        nucleotidyltransferase activity Molecular function     3 10.000000
+43                                                nucleus Cellular component    11 36.666667
+44                                   nucleus organization Biological process     2  6.666667
+47                                oxidoreductase activity Molecular function     2  6.666667
+62                   regulation of organelle organization Biological process     2  6.666667
+66                                   response to chemical Biological process     5 16.666667
+67                                       response to heat Biological process     3 10.000000
+69                           response to oxidative stress Biological process     4 13.333333
+70                                 response to starvation Biological process     2  6.666667
+72                                               ribosome Cellular component     2  6.666667
+75                                            sporulation Biological process     2  6.666667
+81          transcription from RNA polymerase II promoter Biological process     3 10.000000
+82                                   transferase activity Molecular function     8 26.666667
+83     transferase activity, transferring glycosyl groups Molecular function     2  6.666667
+
+$`Cluster 7 (28 genes)`
+                                                         Term           Ontology Count   Percent
+1                                             ATPase activity Molecular function     2  7.142857
+5                        cell wall organization or biogenesis Biological process     2  7.142857
+6                       cellular amino acid metabolic process Biological process     2  7.142857
+7                                                cellular bud Cellular component     2  7.142857
+8                    cellular response to DNA damage stimulus Biological process     3 10.714286
+11                                                 chromosome Cellular component     2  7.142857
+13                                                conjugation Biological process     2  7.142857
+14                                                  cytoplasm Cellular component    19 67.857143
+17                                          DNA recombination Biological process     2  7.142857
+18                                                 DNA repair Biological process     3 10.714286
+20                                                endocytosis Biological process     2  7.142857
+24                                         hydrolase activity Molecular function     6 21.428571
+28                                         meiotic cell cycle Biological process     2  7.142857
+29                                                   membrane Cellular component     6 21.428571
+30                                 methyltransferase activity Molecular function     2  7.142857
+33     nucleobase-containing small molecule metabolic process Biological process     2  7.142857
+35                                                    nucleus Cellular component     9 32.142857
+36                                          organelle fission Biological process     2  7.142857
+40                                       phosphatase activity Molecular function     3 10.714286
+41                                            plasma membrane Cellular component     2  7.142857
+42                                         protein alkylation Biological process     2  7.142857
+43                                  protein binding, bridging Molecular function     2  7.142857
+47                                    protein phosphorylation Biological process     2  7.142857
+49 proteolysis involved in cellular protein catabolic process Biological process     3 10.714286
+55                                       response to chemical Biological process     3 10.714286
+56                                           response to heat Biological process     2  7.142857
+57                                 response to osmotic stress Biological process     2  7.142857
+59                                                  signaling Biological process     4 14.285714
+60                                   site of polarized growth Cellular component     2  7.142857
+61                               structural molecule activity Molecular function     2  7.142857
+62                                       transferase activity Molecular function     6 21.428571
+63         transferase activity, transferring glycosyl groups Molecular function     2  7.142857
+64                                    transmembrane transport Biological process     2  7.142857
+68                                                    vacuole Cellular component     3 10.714286
+
+$`Cluster 15 (29 genes)`
+                                                     Term           Ontology Count   Percent
+3                                    cellular respiration Biological process     5 17.241379
+4                              cofactor metabolic process Biological process     2  6.896552
+5                                               cytoplasm Cellular component    26 89.655172
+8          generation of precursor metabolites and energy Biological process     5 17.241379
+10                                     hydrolase activity Molecular function     5 17.241379
+12                                          ion transport Biological process     2  6.896552
+15                                         lyase activity Molecular function     2  6.896552
+16                                               membrane Cellular component    18 62.068966
+17                                 mitochondrial envelope Cellular component    19 65.517241
+18                              mitochondrial translation Biological process     6 20.689655
+19                                          mitochondrion Cellular component    24 82.758621
+20                             mitochondrion organization Biological process    14 48.275862
+23 nucleobase-containing small molecule metabolic process Biological process     4 13.793103
+24                                                nucleus Cellular component     2  6.896552
+26                                oxidoreductase activity Molecular function     3 10.344828
+30                             protein complex biogenesis Biological process     9 31.034483
+31                                     protein maturation Biological process     2  6.896552
+33                   regulation of organelle organization Biological process     4 13.793103
+34                              regulation of translation Biological process     2  6.896552
+35                                               ribosome Cellular component     4 13.793103
+37                                  RNA catabolic process Biological process     2  6.896552
+38                     structural constituent of ribosome Molecular function     3 10.344828
+39                           structural molecule activity Molecular function     3 10.344828
+42                     transmembrane transporter activity Molecular function     3 10.344828
+43                               unfolded protein binding Molecular function     2  6.896552
+
+$`Cluster 16 (37 genes)`
+                                            Term           Ontology Count   Percent
+1                 carbohydrate metabolic process Biological process     2  5.405405
+3                                    cell cortex Cellular component     2  5.405405
+6       cellular response to DNA damage stimulus Biological process     5 13.513514
+8                         chromatin organization Biological process     2  5.405405
+9                                     chromosome Cellular component     4 10.810811
+10                        chromosome segregation Biological process     2  5.405405
+12                                     cytoplasm Cellular component    23 62.162162
+14                           cytoplasmic vesicle Cellular component     2  5.405405
+16                                  cytoskeleton Cellular component     2  5.405405
+17                     cytoskeleton organization Biological process     2  5.405405
+18                                   DNA binding Molecular function     2  5.405405
+19                             DNA recombination Biological process     2  5.405405
+20                                    DNA repair Biological process     4 10.810811
+23                           endomembrane system Cellular component     5 13.513514
+24                         endoplasmic reticulum Cellular component     3  8.108108
+26                     enzyme regulator activity Molecular function     2  5.405405
+28                               Golgi apparatus Cellular component     2  5.405405
+29                       Golgi vesicle transport Biological process     2  5.405405
+31                            hydrolase activity Molecular function     5 13.513514
+38                                      membrane Cellular component     7 18.918919
+41                                 mitochondrion Cellular component     7 18.918919
+42                            mitotic cell cycle Biological process     6 16.216216
+43                                  mRNA binding Molecular function     2  5.405405
+44                             nuclease activity Molecular function     2  5.405405
+47                                     nucleolus Cellular component     2  5.405405
+49                                       nucleus Cellular component    12 32.432432
+52                             organelle fission Biological process     4 10.810811
+57                               plasma membrane Cellular component     2  5.405405
+61                             protein targeting Biological process     2  5.405405
+63                      regulation of cell cycle Biological process     4 10.810811
+65          regulation of organelle organization Biological process     3  8.108108
+66                          response to chemical Biological process     2  5.405405
+71                                   RNA binding Molecular function     2  5.405405
+72                         RNA catabolic process Biological process     2  5.405405
+73                      site of polarized growth Cellular component     2  5.405405
+77 transcription from RNA polymerase II promoter Biological process     2  5.405405
+78                          transferase activity Molecular function     3  8.108108
+79                       transmembrane transport Biological process     2  5.405405
+80            transmembrane transporter activity Molecular function     3  8.108108
+81                                       vacuole Cellular component     4 10.810811
+83                          vesicle organization Biological process     4 10.810811
+
+$`Cluster 18 (46 genes)`
+                                    Term           Ontology Count   Percent
+2                            cell cortex Cellular component     4  8.695652
+6  cellular amino acid metabolic process Biological process     4  8.695652
+7                           cellular bud Cellular component     4  8.695652
+16                             cytoplasm Cellular component    36 78.260870
+24                   endomembrane system Cellular component     9 19.565217
+25                 endoplasmic reticulum Cellular component     8 17.391304
+32                    hydrolase activity Molecular function     6 13.043478
+38                              membrane Cellular component    17 36.956522
+40                mitochondrial envelope Cellular component     4  8.695652
+42                         mitochondrion Cellular component    12 26.086957
+43            mitochondrion organization Biological process     4  8.695652
+45                          mRNA binding Molecular function     3  6.521739
+47                               nucleus Cellular component     9 19.565217
+49               oxidoreductase activity Molecular function     6 13.043478
+55            protein complex biogenesis Biological process     4  8.695652
+68                           RNA binding Molecular function     3  6.521739
+71              site of polarized growth Cellular component     5 10.869565
+75                  transferase activity Molecular function     6 13.043478
+81                               vacuole Cellular component     4  8.695652
+
+$`Cluster 25 (19 genes)`
+                                                           Term           Ontology Count   Percent
+1                                carbohydrate metabolic process Biological process     2 10.526316
+2                                        carbohydrate transport Biological process     1  5.263158
+3                                                  cell budding Biological process     1  5.263158
+4                                                   cell cortex Cellular component     1  5.263158
+5                                                     cell wall Cellular component     1  5.263158
+6                          cell wall organization or biogenesis Biological process     2 10.526316
+7                                                  cellular bud Cellular component     2 10.526316
+8                                      cellular ion homeostasis Biological process     1  5.263158
+9                                    cofactor metabolic process Biological process     1  5.263158
+10                                                    cytoplasm Cellular component    15 78.947368
+11                                      cytoplasmic translation Biological process     1  5.263158
+12                                                 cytoskeleton Cellular component     1  5.263158
+13                                    cytoskeleton organization Biological process     1  5.263158
+14                                          endomembrane system Cellular component     3 15.789474
+15                                        endoplasmic reticulum Cellular component     3 15.789474
+16               generation of precursor metabolites and energy Biological process     1  5.263158
+17                                      Golgi vesicle transport Biological process     1  5.263158
+18                   guanyl-nucleotide exchange factor activity Molecular function     1  5.263158
+19                                                  ion binding Molecular function     1  5.263158
+20                                                ion transport Biological process     1  5.263158
+21                                              kinase activity Molecular function     2 10.526316
+22                                                lipid binding Molecular function     1  5.263158
+23                                                     membrane Cellular component     6 31.578947
+24                                       mitochondrial envelope Cellular component     1  5.263158
+25                                                mitochondrion Cellular component     4 21.052632
+26                                   mitochondrion organization Biological process     2 10.526316
+27                                           mitotic cell cycle Biological process     1  5.263158
+28                        monocarboxylic acid metabolic process Biological process     1  5.263158
+29       nucleobase-containing small molecule metabolic process Biological process     1  5.263158
+30                                                    nucleolus Cellular component     1  5.263158
+31                                                      nucleus Cellular component     3 15.789474
+32                                           organelle assembly Biological process     2 10.526316
+33                                                   peroxisome Cellular component     1  5.263158
+34                                      peroxisome organization Biological process     1  5.263158
+35                                              plasma membrane Cellular component     2 10.526316
+36                                   protein complex biogenesis Biological process     1  5.263158
+37                                              protein folding Biological process     1  5.263158
+38 protein modification by small protein conjugation or removal Biological process     1  5.263158
+39                                      protein phosphorylation Biological process     1  5.263158
+40                                            protein targeting Biological process     2 10.526316
+41                                 protein transporter activity Molecular function     1  5.263158
+42                                     regulation of cell cycle Biological process     1  5.263158
+43                           ribosomal small subunit biogenesis Biological process     1  5.263158
+44                                                     ribosome Cellular component     2 10.526316
+45                                            ribosome assembly Biological process     1  5.263158
+46                                                  RNA binding Molecular function     1  5.263158
+47                                        RNA catabolic process Biological process     1  5.263158
+48                                                 rRNA binding Molecular function     1  5.263158
+49                                              rRNA processing Biological process     1  5.263158
+50                                                    signaling Biological process     2 10.526316
+51                                     site of polarized growth Cellular component     2 10.526316
+52                           structural constituent of ribosome Molecular function     1  5.263158
+53                                 structural molecule activity Molecular function     2 10.526316
+54                                         transferase activity Molecular function     3 15.789474
+55                                      transmembrane transport Biological process     1  5.263158
+56                           transmembrane transporter activity Molecular function     2 10.526316
+57                                     unfolded protein binding Molecular function     1  5.263158
+58                                                      vacuole Cellular component     2 10.526316
+
+$`Cluster 30 (27 genes)`
+                                            Term           Ontology Count   Percent
+5                                     chromosome Cellular component     3 11.111111
+7                                      cytoplasm Cellular component    14 51.851852
+9                                    DNA binding Molecular function     2  7.407407
+12                           endomembrane system Cellular component     3 11.111111
+13                         endoplasmic reticulum Cellular component     2  7.407407
+15                                 ion transport Biological process     2  7.407407
+19                                      membrane Cellular component     9 33.333333
+20                                 mitochondrion Cellular component     2  7.407407
+26                                     nucleolus Cellular component     2  7.407407
+27                                       nucleus Cellular component     7 25.925926
+32                               plasma membrane Cellular component     3 11.111111
+37                             protein targeting Biological process     2  7.407407
+41                          response to chemical Biological process     2  7.407407
+44                                      ribosome Cellular component     2  7.407407
+45                                   RNA binding Molecular function     2  7.407407
+49 transcription from RNA polymerase II promoter Biological process     3 11.111111
+50                          transferase activity Molecular function     4 14.814815
+52            transmembrane transporter activity Molecular function     2  7.407407
+54                                       vacuole Cellular component     4 14.814815
+
+$`Cluster 39 (13 genes)`
+                                                 Term           Ontology Count   Percent
+1               cellular amino acid metabolic process Biological process     1  7.692308
+2                                           cytoplasm Cellular component     9 69.230769
+3                                 endomembrane system Cellular component     2 15.384615
+4                               endoplasmic reticulum Cellular component     1  7.692308
+5                                     Golgi apparatus Cellular component     1  7.692308
+6                                     ligase activity Molecular function     1  7.692308
+7                                      lyase activity Molecular function     1  7.692308
+8                                            membrane Cellular component     3 23.076923
+9                              mitochondrial envelope Cellular component     1  7.692308
+10                                      mitochondrion Cellular component     3 23.076923
+11                         mitochondrion organization Biological process     2 15.384615
+12                                       mRNA binding Molecular function     1  7.692308
+13                                          nucleolus Cellular component     1  7.692308
+14                                            nucleus Cellular component     2 15.384615
+15                                         peroxisome Cellular component     1  7.692308
+16                          protein binding, bridging Molecular function     1  7.692308
+17                                    protein folding Biological process     1  7.692308
+18                              protein glycosylation Biological process     1  7.692308
+19                                  protein targeting Biological process     2 15.384615
+20                 ribosomal large subunit biogenesis Biological process     1  7.692308
+21                                        RNA binding Molecular function     1  7.692308
+22                               transferase activity Molecular function     1  7.692308
+23 transferase activity, transferring glycosyl groups Molecular function     1  7.692308
+24                            transmembrane transport Biological process     1  7.692308
+25                 transmembrane transporter activity Molecular function     1  7.692308
+26                                            vacuole Cellular component     1  7.692308
+
+$`Cluster 55 (20 genes)`
+                                          Term           Ontology Count Percent
+2        cellular amino acid metabolic process Biological process     3      15
+4     cellular response to DNA damage stimulus Biological process     2      10
+6                                   chromosome Cellular component     2      10
+7                                    cytoplasm Cellular component    17      85
+10                           DNA recombination Biological process     2      10
+15                             ligase activity Molecular function     3      15
+16                                    membrane Cellular component     4      20
+18                      mitochondrial envelope Cellular component     3      15
+19                   mitochondrial translation Biological process     9      45
+20                               mitochondrion Cellular component    17      85
+21                  mitochondrion organization Biological process    11      55
+28                                    ribosome Cellular component     6      30
+29                                 RNA binding Molecular function     2      10
+31                                RNA splicing Biological process     2      10
+33                             rRNA processing Biological process     2      10
+34          structural constituent of ribosome Molecular function     6      30
+35                structural molecule activity Molecular function     6      30
+38 tRNA aminoacylation for protein translation Biological process     2      10
+
+$`Cluster 90 (20 genes)`
+                                                         Term           Ontology Count Percent
+5                                                   cytoplasm Cellular component    16      80
+6                                         endomembrane system Cellular component     3      15
+9                                             Golgi apparatus Cellular component     2      10
+11                                         hydrolase activity Molecular function     2      10
+12                                              ion transport Biological process     2      10
+15                                                   membrane Cellular component     7      35
+17                                     mitochondrial envelope Cellular component     4      20
+19                                              mitochondrion Cellular component     8      40
+20                                 mitochondrion organization Biological process     5      25
+23                                          nuclear transport Biological process     2      10
+27                                                    nucleus Cellular component     3      15
+30                                    oxidoreductase activity Molecular function     2      10
+36 proteolysis involved in cellular protein catabolic process Biological process     2      10
+44                                       transferase activity Molecular function     2      10
+47                                                    vacuole Cellular component     2      10
+

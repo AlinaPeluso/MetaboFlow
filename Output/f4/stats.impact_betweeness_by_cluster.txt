@@ -1,0 +1,11 @@
+                                       Cluster                     Position nGenes
+ 1:  Cluster 15 (29 genes): K(-), Mn(-), Mo(-) High impact, low betweenness     18
+ 2:               Cluster 16 (37 genes): Cd(+)  Low impact, low betweenness     29
+ 3:               Cluster 18 (46 genes): Na(+)  Low impact, low betweenness     34
+ 4:        Cluster 25 (19 genes): Cd(+), Na(-)  Low impact, low betweenness     15
+ 5:                Cluster 3 (30 genes): Mo(+) Low impact, high betweenness     18
+ 6: Cluster 30 (27 genes): Mn(+), Ni(+), Na(-) High impact, low betweenness     20
+ 7:                Cluster 39 (13 genes): S(-)  Low impact, low betweenness     10
+ 8:         Cluster 55 (20 genes): K(-), Mn(-) High impact, low betweenness     15
+ 9:                Cluster 7 (28 genes): Na(-)  Low impact, low betweenness     26
+10:               Cluster 90 (20 genes): Mo(-) Low impact, high betweenness     10
