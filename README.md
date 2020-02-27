@@ -12,9 +12,7 @@ The workflow is wrapped within the `r IonFlow` R package, and it consists of fou
 
 ```
 # Import the package
-install.packages("devtools") 
-install_github("AlinaPeluso/IonFlow", subdir="IonFlow")
-
+devtools::install_github("AlinaPeluso/MetaboFlow", subdir="IonFlow")
 library(IonFlow)
 ```
 
