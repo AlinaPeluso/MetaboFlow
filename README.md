@@ -3,39 +3,48 @@
 This pipeline describes the processing and the analysis of Ionomics data. 
 This [paper](https://arxiv.org/abs/1910.14191) describes a possible application.
 
-The workflow consist of four sections, and respectively
+The workflow is wrapped within the `r IonFlow` R package, and it consists of four sections, respectively
 
 * Pre-processing
 * Exploratory analysis
 * Clustering which also includes the GO Slim annotation and the GO terms enrichment
 * Network analysis
 
-The pre-processing section is required as first as it produces the cleaned dataset used in the other sections. There is no specific order on how to run the other three sections. 
+```
+# Import the package
+install.packages("devtools") # if you have not installed "devtools" package
+devtools::install_github("AlinaPeluso/IonFlow")
+
+library(IonFlow)
+```
 
 ## Section 1: Pre-processing
-This first section aims to free the data from unreliable samples which will probably lead to wrong outputs. In such way, effective data pre-processing methods are applied to avoid the effects of noisy and unreliable data.
+The pre-processing section is required first as it produces in output the cleaned dataset to be used in the other sections. There is no specific order on how to run the other sections. 
+
+The pre-processing section aims to free the data from unreliable samples which will probably lead to wrong outputs. In such way, effective data pre-processing methods are applied to avoid the effects of noisy and unreliable data.
 
 This section requires as input the raw data frame, e.g. ion's concentrations. It is also possible to define a set of ion's standard deviation, as these are possibly computed accounting for some control genes. Note that the latter is an optional input i.e if not provided the standard deviations from the data would be computed to perform the data standardisation (see Section [Standardisation](https://github.com/AlinaPeluso/MetaboFlow#standardisation)).
 
 
-```
-# Import data
-Idata <- read.csv('./Data/Dataset_Metaboflow_Ionomic_Workflow.csv',header=T)
-pre_defined_sd <- read.table('./Data/pre_defined_sd.txt', header=T)
+#### Inspect the raw data
 
-# Run pre-processing fn
-source("./R_fn/PreProcessing_fn.R")
-fn1 <- PreProcessing(data=Idata,stdev=pre_defined_sd)
+```{r, echo=FALSE}
+data(IonData)
 ```
-
-#### Inspect the imported raw data
 
 We illustrate the Ionomics workflow with ICP-MS data of yeast intracellular ion concentrations measured for 1454 single-gene haploid knockouts (data from [Danku, 2009](https://abdn.pure.elsevier.com/en/publications/a-high-throughput-method-for-saccharomyces-cerevisiae-yeast-ionom)). Ions measured include Ca44, Cd111, Co59, Cu65, Fe56, K39, Mg25, Mn55, Mo95, Na23, Ni60, P31, S34, Zn66. Values of concentration are in ppm and have been adjusted using optical density measurements. Intracellular concentrations are measured for two, four or eight replicas of each mutant depending on the knock-out. Knock-out YDL227C mutant is measured multiple times in every batch as control strain.
+
+#### Run the pre-processing function
+
+```
+# Run pre-processing function
+pre_proc <- PreProcessing(data=IonData,stdev=pre_defined_sd)
+```
 
 The concentration values for the raw data ion can be summarised as follow.
 
 ```
-fn1$stats.raw_data
+pre_proc$stats.raw_data
 ```
 
 |    | Ion | Min       | 1st Quartile | Median    | Mean      | 3rd Quartile | Max        | Variance    |
@@ -67,7 +76,7 @@ We define a lower outer fence: `Q1 - 3*IQ` and a upper outer fence: `Q3 + 3*IQ` 
 The outliers are split across ions as follows. 
 
 ```
-fn1$stats.outliers
+pre_proc$stats.outliers
 ```
 |     |Ion | not\_outlier | outlier | outlier\(%\) |
 |-----|----|--------------|---------|--------------|
@@ -92,7 +101,7 @@ fn1$stats.outliers
 First we take the logarithmm of the concentration value. Then, the data are scaled to the median taken for each ion within each batch.
 
 ```
-fn1$stats.median_batch_corrected_data
+pre_proc$stats.median_batch_corrected_data
 ```
 |    | Ion | Min      | 1st Quartile | Median | Mean     | 3rd Quartile | Max    | Variance |
 |----|-----|----------|--------------|--------|----------|--------------|--------|----------|
@@ -114,9 +123,9 @@ fn1$stats.median_batch_corrected_data
 After outlier removal and the median batch correction of the logged concentrations (logConcentration_corr), the data looks as
 
 ```
-fn1$plot.logConcentration_by_batch 
+pre_proc$plot.logConcentration_by_batch 
 ```
-![plot.logConcentration_by_batch](./Output/f1/plot.logConcentration_by_batch.png)
+![plot.logConcentration_by_batch](./Output/pre_proc/plot.logConcentration_by_batch.png)
 
 #### Standardisation
 
@@ -126,7 +135,7 @@ After outlier removal and median batch correction we now standardise the ions' l
 The concentration values for each ion can be summarised as follow.
 
 ```
-fn1$stats.standardised_data
+pre_proc$stats.standardised_data
 ```
 
 
@@ -165,9 +174,9 @@ The choice of the thresold is arbitrary i.e. thresold greater than 3 can be chos
 For each ion measure, we proceed to aggregate the data by taking the median value of the knockout. For each ions we consider around 1,450 genes. And of which we can plot the z-score with the associated sigma as follow.
 
 ```
-fn1$plot.logConcentration_z_scores
+pre_proc$plot.logConcentration_z_scores
 ```
-![plot.logConcentration_z_scores](./Output/f1/plot.logConcentration_z_scores.png)
+![plot.logConcentration_z_scores](./Output/pre_proc/plot.logConcentration_z_scores.png)
 
 
 #### Final datasets
@@ -176,8 +185,7 @@ Three dataset are obtained as output. The first in the long format (genes as row
 
 Long format (aggregated knockout replicates):
 ```
-dataR.long <- fn1$dataR.long
-head(dataR.long)
+head(pre_proc$dataR.long)
 ```
 | row\_id | Knockout | Batch\_ID | id   | Ion | Concentration | Outlier | logConcentration | logConcentration\_corr | logConcentration\_corr\_norm | Symb |
 |---------|----------|-----------|------|-----|---------------|---------|------------------|------------------------|------------------------------|------|
@@ -191,8 +199,7 @@ head(dataR.long)
 
 Long format (not aggregated knockout replicates):
 ```
-data.long <- fn1$data.long
-head(data.long)
+head(pre_proc$data.long)
 ```
 | Knockout | Ion | logConcentration\_corr\_norm | Symb |
 |----------|-----|------------------------------|------|
@@ -206,8 +213,7 @@ head(data.long)
 
 Wide format, standardised ion's concentraction:
 ```
-data.wide <- fn1$data.wide
-head(data.wide)
+head(pre_proc$data.wide)
 ```
 | Knockout | Ca      | Cd      | Co       | Cu      | Fe       | K       | Mg        | Mn      | Mo     | Na      | Ni      | P       | S       | Zn       |
 |----------|---------|---------|----------|---------|----------|---------|-----------|---------|--------|---------|---------|---------|---------|----------|
@@ -221,8 +227,7 @@ head(data.wide)
 
 Wide format, symbolised profiles:
 ```
-data.wide_Symb <- fn1$data.wide_Symb
-head(data.wide_Symb)
+head(pre_proc$data.wide_Symb)
 ```
 | Knockout | Ca | Cd | Co | Cu | Fe | K   | Mg | Mn | Mo | Na | Ni  | P | S | Zn |
 |----------|----|----|----|----|----|-----|----|----|----|----|-----|---|---|----|
@@ -241,18 +246,17 @@ This section provide a way to summarize the main characteristics of the data wit
 No input needed as this section is built on the output of the previous section.
 
 ```
-# Run exploratory analysis fn
-source("./R_fn/ExplAnalysis_fn.R")
-fn2 <- ExploratoryAnalysis(data=data.wide)
+# Run exploratory analysis function
+exp_anal <- ExploratoryAnalysis(data=pre_proc$data.wide)
 ```
 
 
 #### Pearson correlation
 
 ```
-fn2$plot.Pearson_correlation 
+exp_anal$plot.Pearson_correlation 
 ```
-![plot.Pearson_correlation](./Output/f2/plot.Pearson_correlation.png)
+![plot.Pearson_correlation](./Output/exp_anal/plot.Pearson_correlation.png)
 
 #### PCA
 
@@ -261,16 +265,16 @@ The aim of PCA is to reduce the dimensionality of the data while retaining as mu
 In our case, the data are centred but not further scaled as were normalised in the pre-processing stage thus the variance is homogeneous across variables. The algorithm is able to handle missing values.
 
 ```
-fn2$plot.PCA_Individual
+exp_anal$plot.PCA_Individual
 ```
-![plot.PCA_Individual](./Output/f2/plot.PCA_Individual.png)
+![plot.PCA_Individual](./Output/exp_anal/plot.PCA_Individual.png)
 
 The weights of each of the original variables are stored in the so-called loading vectors associated to each PC.
 
 Loadings (first 10) for PC1:
 
 ```
-head(fn2$stat.loadings_PC1,10)
+head(exp_anal$stat.loadings_PC1,10)
 ```
 | Knockout | value\.var |
 |----------|------------|
@@ -289,7 +293,7 @@ head(fn2$stat.loadings_PC1,10)
 Loadings (first 10) for PC2:
 
 ```
-head(fn2$stat.loadings_PC2,10)
+head(exp_anal$stat.loadings_PC2,10)
 ```
 | Knockout | value\.var |
 |----------|------------|
@@ -310,9 +314,9 @@ head(fn2$stat.loadings_PC2,10)
 We employ an heatmap as a graphical representation of data where the knockout values contained are represented as colors. A dendrogram is also added to the left side (clustering of genes knockout) and to the top (clustering of ions).
 
 ```
-fn2$plot.heatmap 
+exp_anal$plot.heatmap 
 ```
-![plot.heatmap](./Output/f2/plot.heatmap.png)
+![plot.heatmap](./Output/exp_anal/plot.heatmap.png)
 
 
 #### Pairwise correlation map
@@ -320,9 +324,9 @@ fn2$plot.heatmap
 We employ a correlation map to visualise the paiwise correlation coefficients across ions.
 
 ```
-fn2$plot.pairwise_correlation_map 
+exp_anal$plot.pairwise_correlation_map 
 ```
-![plot.pairwise_correlation_map](./Output/f2/plot.pairwise_correlation_map.png)
+![plot.pairwise_correlation_map](./Output/exp_anal/plot.pairwise_correlation_map.png)
 
 #### Regularized partial correlation network 
 
@@ -336,21 +340,25 @@ Whenever the partial correlation is exactly zero, no connection is drawn between
 
 
 ```
-fn2$plot.regularized_partial_correlation_network 
+exp_anal$plot.regularized_partial_correlation_network 
 ```
-![plot.regularized_partial_correlation_network](./Output/f2/plot.regularized_partial_correlation_network.png)
+![plot.regularized_partial_correlation_network](./Output/exp_anal/plot.regularized_partial_correlation_network.png)
 
 ## Section 3: Clustering
 
+```
+# Inspect data for GO Slim annotation 
+data(data_GOslim)
+head(data_GOslim)
+
+# Inspect data for GO Terms for enrichment
+data(ORF2KEGG)
+head(ORF2KEGG)
+```
 
 ```
-# Import data 
-go_slim_mapping <- read.table('./Data/go_slim_mapping.txt', sep='\t', header=T)
-ORF2KEGG <- read.table('./Data/ORF2KEGG.txt', sep='\t', header=T)
-
-# Run clustering fn
-source("./R_fn/GeneClustering_fn.R")
-fn3 <- GeneClustering(data=data.wide, data_Symb=data.wide_Symb, data_GOslim=go_slim_mapping, data_ORF2KEGG=ORF2KEGG)
+# Run clustering function
+gene_clust <- GeneClustering(data=pre_proc$data.wide, data_Symb=pre_proc$data.wide_Symb)
 ```
 
 
@@ -360,7 +368,7 @@ We compute the manhattan distances between the knockouts' symbolised profile to 
 We proceed to investigate the clusters which have at least 10 genes.
 
 ```
-fn3$stats.clusters
+gene_clust$stats.clusters
 ```
 | cluster\_id | nGenes |
 |-------------|--------|
@@ -379,9 +387,9 @@ fn3$stats.clusters
 We then compute a profile plot for each cluster.
 
 ```
-fn3$plot.profiles 
+gene_clust$plot.profiles 
 ```
-![plot.profiles](./Output/f3/plot.profiles.png)
+![plot.profiles](./Output/gene_clust/plot.profiles.png)
 
 #### Go Slim annotation
 
@@ -392,7 +400,7 @@ We do not include in the results the first cluster (Cluster 1) as this the "null
 The first five entries of each cluster can be access as follows.
 
 ```
-lapply(fn3$stat.Kegg_Goslim_annotation, function(x) head(x,5))
+lapply(gene_clust$stats.Kegg_Goslim_annotation, function(x) head(x,5))
 ```
 | Term                                            |  Ontology            |  Count |  Percent |
 |-------------------------------------------------|----------------------|--------|----------|
@@ -472,7 +480,7 @@ The first five entries of each cluster can be access as follows.
 
 
 ```
-lapply(fn3$stat.Goterms_enrichment, function(x) head(x,5))
+lapply(gene_clust$stats.Goterms_enrichment, function(x) head(x,5))
 ```
 
 | GO\_ID                         |  Description                           |  Pvalue       |  Count  | CountUniverse |
@@ -526,9 +534,8 @@ lapply(fn3$stat.Goterms_enrichment, function(x) head(x,5))
 ## Section 4: Network analysis
 
 ```
-# Run gene network fn
-source("C:/Users/alina/Dropbox/Imperial/Galaxy/R/WrapForGalaxy/MetaboFlow/R_fn/GeneNetwork_fn.R")
-fn4 <- GeneNetwork(data=data.wide, data_Symb=data.wide_Symb)
+# Run gene network function
+gene_net <- GeneNetwork(data=pre_proc$data.wide, data_Symb=pre_proc$data.wide_Symb)
 ```
 
 The aim of the following network analysis is to group genes with same symbolic profile. 
@@ -546,23 +553,23 @@ And finally we can visualise the corresponding network plot.
 
 
 ```
-fn4$plot.pnet
+gene_net$plot.pnet
 ```
-![plot.pnet](./Output/f4/plot.pnet.png)
+![plot.pnet](./Output/gene_net/plot.pnet.png)
 
 #### Impact and betweeness scores
 
 We are now interested to highlight the most central genes. To do so we can consider two metrics i.e. the impact and the betweeness. From the empirical correlation matrix between genes we can compute the betweenness measure as the fraction of shortest paths that pass through each gene (node). Next a measure of impact can be computed as the `L2` norm (Euclidean distance) of each gene. These two centrality measures can be then used togheter to cluster the genes as follow.
 
 ```
-fn4$plot.impact_betweenees
+gene_net$plot.impact_betweenees
 ```
-![plot.impact_betweenees](./Output/f4/plot.impact_betweenees.png)
+![plot.impact_betweenees](./Output/gene_net/plot.impact_betweenees.png)
 
 We can also access to the impact and betweeness value as follow (only first 10 value shown).
 
 ```
-head(fn4$stats.impact_betweeness,10)
+head(gene_net$stats.impact_betweeness,10)
 ```
 
 |  Knockout |  Impact  | Betweenness |  Position                      |  Cluster                                              |
@@ -582,7 +589,7 @@ head(fn4$stats.impact_betweeness,10)
 We can also associate each cluster to low or high values of impact and betwenees based on the highest number of genes in that cathegory.
 
 ```
-fn4$stats.impact_betweeness_by_cluster
+gene_net$stats.impact_betweeness_by_cluster
 ```
 
 |  Cluster                                               | Position                      | nGenes |
