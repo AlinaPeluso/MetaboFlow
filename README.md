@@ -12,8 +12,8 @@ The workflow is wrapped within the `r IonFlow` R package, and it consists of fou
 
 ```
 # Import the package
-install.packages("devtools") # if you have not installed "devtools" package
-devtools::install_github("AlinaPeluso/IonFlow")
+install.packages("devtools") 
+install_github("AlinaPeluso/IonFlow", subdir="IonFlow")
 
 library(IonFlow)
 ```
