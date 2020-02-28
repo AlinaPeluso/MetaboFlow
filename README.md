@@ -10,6 +10,9 @@ The workflow is wrapped within the `r IonFlow` R package, and it consists of fou
 * Clustering which also includes the GO Slim annotation and the GO terms enrichment
 * Network analysis
 
+
+
+## Section 0: Import the R package
 ```
 # Import the package
 devtools::install_github("AlinaPeluso/MetaboFlow", subdir="IonFlow")
