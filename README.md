@@ -3,6 +3,11 @@
 This pipeline describes the processing and the analysis of Ionomics data. 
 This [paper](https://arxiv.org/abs/1910.14191) describes a possible application.
 
+
+
+
+## Section 0: Import the R package
+
 The workflow is wrapped within the `r IonFlow` R package, and it consists of four sections, respectively
 
 * Pre-processing
@@ -10,14 +15,11 @@ The workflow is wrapped within the `r IonFlow` R package, and it consists of fou
 * Clustering which also includes the GO Slim annotation and the GO terms enrichment
 * Network analysis
 
-
-
-## Section 0: Import the R package
 ```
-# Import the package
 devtools::install_github("AlinaPeluso/MetaboFlow", subdir="IonFlow")
 library(IonFlow)
 ```
+
 
 ## Section 1: Pre-processing
 The pre-processing section is required first as it produces in output the cleaned dataset to be used in the other sections. There is no specific order on how to run the other sections. 
