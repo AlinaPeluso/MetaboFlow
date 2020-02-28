@@ -8,7 +8,7 @@ This [paper](https://arxiv.org/abs/1910.14191) describes a possible application.
 
 ## Section 0: Import the R package
 
-The workflow is wrapped within the `r IonFlow` R package, and it consists of four sections, respectively
+The workflow is wrapped within the `IonFlow` R package, and it consists of four sections, respectively
 
 * Pre-processing
 * Exploratory analysis
