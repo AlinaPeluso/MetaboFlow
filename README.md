@@ -40,7 +40,6 @@ We illustrate the Ionomics workflow with ICP-MS data of yeast intracellular ion 
 #### Run the pre-processing function
 
 ```
-# Run pre-processing function
 pre_proc <- PreProcessing(data=IonData,stdev=pre_defined_sd)
 ```
 
@@ -249,7 +248,6 @@ This section provide a way to summarize the main characteristics of the data wit
 No input needed as this section is built on the output of the previous section.
 
 ```
-# Run exploratory analysis function
 exp_anal <- ExploratoryAnalysis(data=pre_proc$data.wide)
 ```
 
@@ -360,7 +358,6 @@ head(ORF2KEGG)
 ```
 
 ```
-# Run clustering function
 gene_clust <- GeneClustering(data=pre_proc$data.wide, data_Symb=pre_proc$data.wide_Symb)
 ```
 
@@ -537,7 +534,6 @@ lapply(gene_clust$stats.Goterms_enrichment, function(x) head(x,5))
 ## Section 4: Network analysis
 
 ```
-# Run gene network function
 gene_net <- GeneNetwork(data=pre_proc$data.wide, data_Symb=pre_proc$data.wide_Symb)
 ```
 
