@@ -4,8 +4,6 @@ This pipeline describes the processing and the analysis of Ionomics data.
 This [paper](https://arxiv.org/abs/1910.14191) describes a possible application.
 
 
-
-
 ## Section 0: Import the R package
 
 The workflow is wrapped within the `IonFlow` R package, and it consists of four sections, respectively
@@ -31,7 +29,7 @@ This section requires as input the raw data frame, e.g. ion's concentrations. It
 
 #### Inspect the raw data
 
-```{r, echo=FALSE}
+```
 data(IonData)
 ```
 
