@@ -16,11 +16,9 @@ authors:
 affiliations:
  - name: Department of Metabolism Digestion and Reproduction, Faculty of Medicine, Imperial College London, London, SW7 2AZ, United Kingdom
    index: 1
- - name: The Molecular Biology of Metabolism Laboratory,
-The Francis Crick Institute, London, NW1 1AT, United Kingdom
+ - name: The Molecular Biology of Metabolism Laboratory, The Francis Crick Institute, London, NW1 1AT, United Kingdom
    index: 2
- - name: Centre for Molecular Informatics, Department of Chemistry,
-University of Cambridge, Lensfield Road, Cambridge, CB21EW, United Kingdom
+ - name: Centre for Molecular Informatics, Department of Chemistry, University of Cambridge, Lensfield Road, Cambridge, CB21EW, United Kingdom
    index: 3
 date: 27 February 2020
 bibliography: paper.bib
